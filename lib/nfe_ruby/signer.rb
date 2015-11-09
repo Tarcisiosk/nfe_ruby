@@ -2,9 +2,9 @@ module NfeRuby
   class Signer
     def initialize(options = {})
       # Inicializar certificado, chave privada e digest
-      @pub_key = :cert_file
+      @pub_key = options[:cert_file]
       #OpenSSL::X509::Certificate.new(File.read(options[:cert_file])) if options[:cert_file].present?
-      @priv_key = :priv_key_file
+      @priv_key = options[:priv_key_file]
       #OpenSSL::PKey::RSA.new(File.read(options[:priv_key_file]), options[:priv_key_pass]) if options[:priv_key_file].present?
       @digest = OpenSSL::Digest::SHA1.new
     end
