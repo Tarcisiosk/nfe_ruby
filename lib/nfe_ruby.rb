@@ -98,8 +98,8 @@ module NfeRuby
       to_builder.to_xml
     end
 
-    def assinar
-      @signer.assinar(self.to_xml.to_s, 'infNFe')
+    def assinar(xml)
+      @signer.assinar(xml, 'infNFe')
     end
   end
 end
