@@ -1,6 +1,7 @@
 module NfeRuby
   class Signer
     def initialize(options = {})
+      puts "---------- INICIALIZOU O ASSINANTE"
       # Inicializar certificado, chave privada e digest
       @pub_key = options[:cert_file]
       #OpenSSL::X509::Certificate.new(File.read(options[:cert_file])) if options[:cert_file].present?
@@ -11,6 +12,7 @@ module NfeRuby
 
     # Assinar um documento XML
     def assinar(xml, tag)
+      puts "---------- ASSINAR"
       @xml = Nokogiri::XML(xml, &:noblanks)
       node = @xml.at(tag)
       if node.present?
@@ -23,6 +25,8 @@ module NfeRuby
     end
 
     def sign_document
+      puts "---------- ASSINAR DOC"
+
       # Montar tag contendo informações do certificado
       key_info
 
@@ -38,6 +42,8 @@ module NfeRuby
     end
 
     def key_info
+      puts "---------- KEY INFO"
+      
       cert_node = Nokogiri::XML::Node.new('X509Certificate', @xml)
       cert_node.content = Base64.encode64(@pub_key.to_der).gsub("\n", '')
 
@@ -51,6 +57,8 @@ module NfeRuby
     end
 
     def signed_info_node
+      puts "---------- INFO NODE"
+
       node = signature_node.at_xpath('ds:SignedInfo', ds: 'http://www.w3.org/2000/09/xmldsig#')
       unless node
         node = Nokogiri::XML::Node.new('SignedInfo', @xml)
@@ -68,6 +76,8 @@ module NfeRuby
     end
 
     def signature_node
+      puts "---------- SIGN NODE"
+
       @signature_node ||= begin
         @signature_node = @xml.document.root.at_xpath('ds:Signature', ds: 'http://www.w3.org/2000/09/xmldsig#')
         unless @signature_node
@@ -80,10 +90,14 @@ module NfeRuby
     end
 
     def canonicalize(node = document)
+      puts "---------- CANONICALIZE"
+
       node.canonicalize(Nokogiri::XML::XML_C14N_EXCLUSIVE_1_0, nil, nil)
     end
 
     def digest(node, id_doc)
+      puts "---------- DIGEST"
+
       target_canon = canonicalize(node)
       target_digest = Base64.encode64(@digest.digest(target_canon)).strip
 
