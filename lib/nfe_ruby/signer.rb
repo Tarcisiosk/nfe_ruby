@@ -13,6 +13,8 @@ module NfeRuby
     # Assinar um documento XML
     def assinar(xml, tag)
       puts "---------- ASSINAR"
+      puts "---------- XML #{@xml}"
+
       @xml = Nokogiri::XML(xml, &:noblanks)
       node = @xml.at(tag)
       if node.present?
