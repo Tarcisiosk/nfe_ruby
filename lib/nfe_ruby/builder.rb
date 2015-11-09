@@ -72,7 +72,7 @@ module NfeRuby
                 xml.fone @nfe_doc.dest.ender_dest.fone
               }
               xml.indIEDest @nfe_doc.dest.ind_ie_dest
-              xml.email @nfe_doc.dest.email
+              #xml.email @nfe_doc.dest.email
             }
 
             # Preencher tag de cada detalhe/item
