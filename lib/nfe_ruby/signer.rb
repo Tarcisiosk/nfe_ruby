@@ -24,7 +24,7 @@ module NfeRuby
       else
         raise "Tag informada não existe no XML informado."
       end
-      put "****XML FINAL**** = #{@xml}"
+      puts "****XML FINAL**** = #{@xml}"
     end
 
     def sign_document
