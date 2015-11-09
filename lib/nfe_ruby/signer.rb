@@ -9,7 +9,11 @@ module NfeRuby
       #OpenSSL::PKey::RSA.new(File.read(options[:priv_key_file]), options[:priv_key_pass]) if options[:priv_key_file].present?
       @digest = OpenSSL::Digest::SHA1.new
     end
-
+    
+    def detSignedXML
+      return @xml
+    end
+  
     # Assinar um documento XML
     def assinar(xml, tag)
       puts "---------- ASSINAR"
