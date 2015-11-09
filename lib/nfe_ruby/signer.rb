@@ -10,7 +10,7 @@ module NfeRuby
       @digest = OpenSSL::Digest::SHA1.new
     end
     
-    def detSignedXML
+    def getSignedXML
       return @xml
     end
   
