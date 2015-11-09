@@ -24,6 +24,7 @@ module NfeRuby
       else
         raise "Tag informada não existe no XML informado."
       end
+      put "****XML FINAL**** = #{@xml}"
     end
 
     def sign_document
@@ -37,7 +38,6 @@ module NfeRuby
 
       # Adicionar no XML conteudo da assinatura
       signature_value_node = Nokogiri::XML::Node.new('SignatureValue', @xml)
-      puts "XML: #{@xml}"
       signature_value_node.content = signature_value_digest
       signed_info_node.add_next_sibling(signature_value_node)
     end
