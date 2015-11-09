@@ -102,8 +102,5 @@ module NfeRuby
       @signer.assinar(xml, 'infNFe')
     end
     
-    def getSigned
-      return @signer.getSignedXML
-    end
   end
 end
