@@ -103,11 +103,12 @@ module NfeRuby
                     xml.send(tag_icms) {
                       xml.orig item.imposto.icms.orig
                       xml.CST item.imposto.icms.cst
-                      xml.vICMSDeson number_to_currency(item.imposto.icms.v_icms_deson, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_deson.present?
-                      xml.motDesICMS item.imposto.icms.mot_des_icms if item.imposto.icms.mot_des_icms.present?
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
                       xml.vBC number_to_currency(item.imposto.icms.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_bc.present?
+                      xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
                       xml.pICMS item.imposto.icms.p_icms if item.imposto.icms.p_icms.present?
+                      xml.pDif item.imposto.icms.p_dif if item.imposto.icms.p_dif.present?
+                      xml.vICMSDif  number_to_currency(item.imposto.icms.v_icms_dif, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_dif.present?
                       xml.vICMS number_to_currency(item.imposto.icms.v_icms, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms
                       xml.modBCST item.imposto.icms.mod_bc_st if item.imposto.icms.mod_bc_st.present?
                       xml.pMVAST item.imposto.icms.p_mva_st if item.imposto.icms.p_mva_st.present?
@@ -115,10 +116,10 @@ module NfeRuby
                       xml.vBCST number_to_currency(item.imposto.icms.v_bc_st, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_bc_st.present?
                       xml.pICMSST item.imposto.icms.p_icms_st if item.imposto.icms.p_icms_st.present?
                       xml.vICMSST number_to_currency(item.imposto.icms.v_icms_st, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_st.present?
-                      xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
-                      xml.pDif item.imposto.icms.p_dif if item.imposto.icms.p_dif.present?
-                      xml.vICMSDif  number_to_currency(item.imposto.icms.v_icms_dif, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_dif.present?
+                      xml.vICMSDeson number_to_currency(item.imposto.icms.v_icms_deson, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_deson.present?
+                      xml.motDesICMS item.imposto.icms.mot_des_icms if item.imposto.icms.mot_des_icms.present?
 
+ 
                     }
                   }
                   if item.imposto.pis.cst.present?
