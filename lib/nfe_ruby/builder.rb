@@ -55,7 +55,7 @@ module NfeRuby
                 xml.fone @nfe_doc.emit.ender_emit.fone
               }
               xml.IE @nfe_doc.emit.ie
-              xml.IM @nfe_doc.emit.im
+              xml.IM @nfe_doc.emit.im if @nfe_doc.emit.im.present?
               xml.CNAE @nfe_doc.emit.cnae
               xml.CRT @nfe_doc.emit.crt
             }
@@ -75,7 +75,7 @@ module NfeRuby
                 xml.fone @nfe_doc.dest.ender_dest.fone
               }
               xml.indIEDest @nfe_doc.dest.ind_ie_dest
-              #xml.email @nfe_doc.dest.email
+              xml.email @nfe_doc.dest.email if @nfe_doc.dest.email.present?
             }
 
             # Preencher tag de cada detalhe/item
@@ -89,12 +89,12 @@ module NfeRuby
                   xml.CFOP item.prod.cfop
                   xml.uCom item.prod.u_com
                   xml.qCom item.prod.q_com
-                  xml.vUnCom item.prod.v_un_com
-                  xml.vProd item.prod.v_prod
+                  xml.vUnCom number_to_currency(item.prod.v_un_com, separator: ",", delimiter: "", format: "%n")
+                  xml.vProd number_to_currency(item.prod.v_prod, separator: ",", delimiter: "", format: "%n")
                   xml.cEANTrib item.prod.c_ean_trib
                   xml.uTrib item.prod.u_trib
                   xml.qTrib item.prod.q_trib
-                  xml.vUnTrib item.prod.v_un_trib
+                  xml.vUnTrib number_to_currency(item.prod.v_un_trib, separator: ",", delimiter: "", format: "%n")
                   xml.indTot item.prod.ind_tot
                 }
                 xml.imposto {
@@ -103,21 +103,21 @@ module NfeRuby
                     xml.send(tag_icms) {
                       xml.orig item.imposto.icms.orig
                       xml.CST item.imposto.icms.cst
-                      xml.vICMSDeson item.imposto.icms.v_icms_deson if item.imposto.icms.v_icms_deson.present?
+                      xml.vICMSDeson number_to_currency(item.imposto.icms.v_icms_deson, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_icms_deson.present?
                       xml.motDesICMS item.imposto.icms.mot_des_icms if item.imposto.icms.mot_des_icms.present?
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
-                      xml.vBC item.imposto.icms.v_bc if item.imposto.icms.v_bc.present?
+                      xml.vBC number_to_currency(item.imposto.icms.v_bc, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_bc.present?
                       xml.pICMS item.imposto.icms.p_icms if item.imposto.icms.p_icms.present?
-                      xml.vICMS item.imposto.icms.v_icms if item.imposto.icms.v_icms
+                      xml.vICMS number_to_currency(item.imposto.icms.v_icms, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_icms
                       xml.modBCST item.imposto.icms.mod_bc_st if item.imposto.icms.mod_bc_st.present?
                       xml.pMVAST item.imposto.icms.p_mva_st if item.imposto.icms.p_mva_st.present?
                       xml.pRedBCST item.imposto.icms.p_red_bc_st if item.imposto.icms.p_red_bc_st.present?
-                      xml.vBCST item.imposto.icms.v_bc_st if item.imposto.icms.v_bc_st.present?
+                      xml.vBCST number_to_currency(item.imposto.icms.v_bc_st, separator: ",", delimiter: "", format: "%n"), separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_bc_st.present?
                       xml.pICMSST item.imposto.icms.p_icms_st if item.imposto.icms.p_icms_st.present?
-                      xml.vICMSST item.imposto.icms.v_icms_st if item.imposto.icms.v_icms_st.present?
+                      xml.vICMSST number_to_currency(item.imposto.icms.v_icms_st, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_icms_st.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
                       xml.pDif item.imposto.icms.p_dif if item.imposto.icms.p_dif.present?
-                      xml.vICMSDif item.imposto.icms.v_icms_dif if item.imposto.icms.v_icms_dif.present?
+                      xml.vICMSDif  number_to_currency(item.imposto.icms.v_icms_dif, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_icms_dif.present?
 
                     }
                   }
