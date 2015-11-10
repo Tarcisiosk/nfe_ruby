@@ -112,7 +112,7 @@ module NfeRuby
                       xml.modBCST item.imposto.icms.mod_bc_st if item.imposto.icms.mod_bc_st.present?
                       xml.pMVAST item.imposto.icms.p_mva_st if item.imposto.icms.p_mva_st.present?
                       xml.pRedBCST item.imposto.icms.p_red_bc_st if item.imposto.icms.p_red_bc_st.present?
-                      xml.vBCST number_to_currency(item.imposto.icms.v_bc_st, separator: ",", delimiter: "", format: "%n"), separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_bc_st.present?
+                      xml.vBCST number_to_currency(item.imposto.icms.v_bc_st, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_bc_st.present?
                       xml.pICMSST item.imposto.icms.p_icms_st if item.imposto.icms.p_icms_st.present?
                       xml.vICMSST number_to_currency(item.imposto.icms.v_icms_st, separator: ",", delimiter: "", format: "%n") if item.imposto.icms.v_icms_st.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
