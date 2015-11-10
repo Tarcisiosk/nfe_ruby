@@ -72,7 +72,7 @@ module NfeRuby
                 xml.CEP @nfe_doc.dest.ender_dest.cep
                 xml.cPais @nfe_doc.dest.ender_dest.c_pais
                 xml.xPais @nfe_doc.dest.ender_dest.x_pais
-                xml.fone @nfe_doc.dest.ender_dest.fone
+                xml.fone @nfe_doc.dest.ender_dest.fone if @nfe_doc.dest.ender_dest.fone.present?
               }
               xml.indIEDest @nfe_doc.dest.ind_ie_dest
               xml.email @nfe_doc.dest.email if @nfe_doc.dest.email.present?
