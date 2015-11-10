@@ -104,8 +104,8 @@ module NfeRuby
                       xml.orig item.imposto.icms.orig
                       xml.CST item.imposto.icms.cst
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
-                      xml.vBC number_to_currency(item.imposto.icms.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_bc.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
+                      xml.vBC number_to_currency(item.imposto.icms.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_bc.present?
                       xml.pICMS item.imposto.icms.p_icms if item.imposto.icms.p_icms.present?
                       xml.pDif item.imposto.icms.p_dif if item.imposto.icms.p_dif.present?
                       xml.vICMSDif  number_to_currency(item.imposto.icms.v_icms_dif, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_dif.present?
@@ -155,7 +155,7 @@ module NfeRuby
               xml.ICMSTot {
                 xml.vBC  number_to_currency(@nfe_doc.total.icms.v_bc, separator: ".", delimiter: "", format: "%n")
                 xml.vICMS number_to_currency(@nfe_doc.total.icms.v_icms, separator: ".", delimiter: "", format: "%n")
-                xml.vICMSDeson number_to_currency(@nfe_doc.total.icms.v_icms_deson, separator: "", delimiter: "", format: "%n") if @nfe_doc.total.icms.v_icms_deson.present?
+                xml.vICMSDeson number_to_currency(@nfe_doc.total.icms.v_icms_deson, separator: ".", delimiter: "", format: "%n") if @nfe_doc.total.icms.v_icms_deson.present?
                 xml.vBCST  number_to_currency(@nfe_doc.total.icms.v_bc_st, separator: ".", delimiter: "", format: "%n")
                 xml.vST  number_to_currency(@nfe_doc.total.icms.v_st, separator: ".", delimiter: "", format: "%n")
                 xml.vProd  number_to_currency(@nfe_doc.total.icms.v_prod, separator: ".", delimiter: "", format: "%n")
