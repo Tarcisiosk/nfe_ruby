@@ -122,6 +122,17 @@ module NfeRuby
  
                     }
                   }
+                  if item.imposto.ipi.cst.present?
+                  xml.IPI 
+                  {
+                    xml.send(tag_ipi) 
+                    {
+                  		xml.vBC item.imposto.ipi.v_bc if item.imposto.ipi.v_bc.present?
+			  	          	xml.pIPI item.imposto.ipi.p_ipi if item.imposto.ipi.p_ipi.present?
+			  	          	xml.vIPI item.imposto.ipi.v_ipi if item.imposto.ipi.v_ipi.present?
+                    }
+                  }
+              
                   if item.imposto.pis.cst.present?
                   xml.PIS {
                     tag_pis = case item.imposto.pis.cst
@@ -132,6 +143,10 @@ module NfeRuby
                               end
                     xml.send(tag_pis) {
                       xml.CST item.imposto.pis.cst if item.imposto.pis.cst.present?
+                      xml.vBC item.imposto.pis.v_bc if item.imposto.pis.v_bc.present?
+                      xml.pPIS item.imposto.pis.p_pis if item.imposto.pis.p_pis.present?
+ 			  		          xml.vPIS item.imposto.pis.v_pis if item.imposto.pis.v_pis.present? 
+ 			  		          
                     }
                   }
                   end
@@ -145,6 +160,10 @@ module NfeRuby
                                    end
                       xml.send(tag_cofins) {
                         xml.CST item.imposto.cofins.cst if item.imposto.cofins.cst.present?
+                        xml.vBC item.imposto.pis.v_bc if item.imposto.pis.v_bc.present?
+                        xml.pCOFINS item.imposto.pis.p_cofins if item.imposto.pis.p_cofins.present?
+ 			  		            xml.vCOFINS item.imposto.pis.v_cofins if item.imposto.pis.v_cofins.present? 
+                        
                       }
                     }
                   end
