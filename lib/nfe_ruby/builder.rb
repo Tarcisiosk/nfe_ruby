@@ -96,8 +96,8 @@ module NfeRuby
                   xml.qTrib item.prod.q_trib
                   xml.vUnTrib number_to_currency(item.prod.v_un_trib, separator: ".", delimiter: "", format: "%n")
                   xml.vFrete number_to_currency(item.prod.v_frete, separator: ".", delimiter: "", format: "%n")
-                  xml.vDesc number_to_currency(item.prod.v_desc, separator: ".", delimiter: "", format: "%n")
                   xml.vSeg number_to_currency(item.prod.v_seg, separator: ".", delimiter: "", format: "%n")
+                  xml.vDesc number_to_currency(item.prod.v_desc, separator: ".", delimiter: "", format: "%n")
                   xml.vOutro number_to_currency(item.prod.v_outro, separator: ".", delimiter: "", format: "%n")
                   xml.indTot item.prod.ind_tot
                 }
