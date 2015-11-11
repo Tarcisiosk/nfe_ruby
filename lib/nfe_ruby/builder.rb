@@ -133,11 +133,11 @@ module NfeRuby
                     xml.send(tag_ipi) {
 		      xml.CST item.imposto.ipi.cst if item.imposto.ipi.cst.present?
                       xml.vBC number_to_currency(item.imposto.ipi.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.ipi.v_bc.present?
-		      puts 'BASE DE CALCULO #{item.imposto.ipi.v_bc}'
+		      puts "BASE DE CALCULO #{item.imposto.ipi.v_bc}"
 		      xml.pIPI item.imposto.ipi.p_ipi if item.imposto.ipi.p_ipi.present?
-		      puts 'BASE DE ALIQUOTA #{item.imposto.ipi.p_ipi}'
+		      puts "BASE DE ALIQUOTA #{item.imposto.ipi.p_ipi}"
 		      xml.vIPI number_to_currency(item.imposto.ipi.v_ipi, separator: ".", delimiter: "", format: "%n") if item.imposto.ipi.v_ipi.present?
-		      puts 'BASE DE VALOR #{item.imposto.ipi.v_ipi}'
+		      puts "BASE DE VALOR #{item.imposto.ipi.v_ipi}"
 		      
                     }	
                 }
