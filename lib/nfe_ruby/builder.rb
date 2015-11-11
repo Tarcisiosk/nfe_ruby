@@ -164,9 +164,9 @@ module NfeRuby
                                    end
                       xml.send(tag_cofins) {
                         xml.CST item.imposto.cofins.cst if item.imposto.cofins.cst.present?
-                        xml.vBC item.imposto.pis.v_bc if item.imposto.pis.v_bc.present?
-                        xml.pCOFINS item.imposto.pis.p_cofins if item.imposto.pis.p_cofins.present?
-			xml.vCOFINS item.imposto.pis.v_cofins if item.imposto.pis.v_cofins.present? 
+                        xml.vBC item.imposto.cofins.v_bc if item.imposto.cofins.v_bc.present?
+                        xml.pCOFINS item.imposto.cofins.p_cofins if item.imposto.cofins.p_cofins.present?
+			xml.vCOFINS item.imposto.cofins.v_cofins if item.imposto.cofins.v_cofins.present? 
                         
                       }
                     }
