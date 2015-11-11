@@ -97,7 +97,8 @@ module NfeRuby
                   xml.vUnTrib number_to_currency(item.prod.v_un_trib, separator: ".", delimiter: "", format: "%n")
                   xml.indTot item.prod.ind_tot
                 }
-                xml.imposto {
+                xml.imposto 
+                {
                   xml.ICMS {
                     tag_icms = @nfe_doc.emit.crt.between?(1, 2) ? "ICMSSN#{item.imposto.icms.cst}" : "ICMS#{item.imposto.icms.cst}"
                     xml.send(tag_icms) {
@@ -127,12 +128,12 @@ module NfeRuby
                   {
                     xml.send(tag_ipi) 
                     {
-                  		xml.vBC item.imposto.ipi.v_bc if item.imposto.ipi.v_bc.present?
-			  	          	xml.pIPI item.imposto.ipi.p_ipi if item.imposto.ipi.p_ipi.present?
-			  	          	xml.vIPI item.imposto.ipi.v_ipi if item.imposto.ipi.v_ipi.present?
+                  	xml.vBC item.imposto.ipi.v_bc if item.imposto.ipi.v_bc.present?
+			xml.pIPI item.imposto.ipi.p_ipi if item.imposto.ipi.p_ipi.present?
+			xml.vIPI item.imposto.ipi.v_ipi if item.imposto.ipi.v_ipi.present?
                     }
                   }
-              
+              	  end
                   if item.imposto.pis.cst.present?
                   xml.PIS {
                     tag_pis = case item.imposto.pis.cst
@@ -162,7 +163,7 @@ module NfeRuby
                         xml.CST item.imposto.cofins.cst if item.imposto.cofins.cst.present?
                         xml.vBC item.imposto.pis.v_bc if item.imposto.pis.v_bc.present?
                         xml.pCOFINS item.imposto.pis.p_cofins if item.imposto.pis.p_cofins.present?
- 			  		            xml.vCOFINS item.imposto.pis.v_cofins if item.imposto.pis.v_cofins.present? 
+ 			xml.vCOFINS item.imposto.pis.v_cofins if item.imposto.pis.v_cofins.present? 
                         
                       }
                     }
