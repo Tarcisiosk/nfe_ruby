@@ -75,6 +75,8 @@ module NfeRuby
                 xml.fone @nfe_doc.dest.ender_dest.fone if @nfe_doc.dest.ender_dest.fone.present?
               }
               xml.indIEDest @nfe_doc.dest.ind_ie_dest
+              xml.IE @nfe_doc.dest.ie if @nfe_doc.dest.ie.present? 
+
               xml.email @nfe_doc.dest.email if @nfe_doc.dest.email.present?
             }
 
