@@ -128,7 +128,7 @@ module NfeRuby
                   
                   if item.imposto.ipi.cst.present?
                   xml.IPI {
- 		    xml.cEnq item.imposto.ipi.c_enq if item.imposto.ipi.v_ipi.present?
+ 		    xml.cEnq item.imposto.ipi.c_enq
 
                     if item.imposto.ipi.cst == '00' || item.imposto.ipi.cst == '49' || item.imposto.ipi.cst == '50' || item.imposto.ipi.cst == '99'
  		    	tag_ipi = 'IPITrib'
