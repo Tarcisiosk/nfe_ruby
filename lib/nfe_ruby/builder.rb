@@ -94,11 +94,11 @@ module NfeRuby
                   xml.cEANTrib item.prod.c_ean_trib
                   xml.uTrib item.prod.u_trib
                   xml.qTrib item.prod.q_trib
-                  xml.vUnTrib number_to_currency(item.prod.v_un_trib, separator: ".", delimiter: "", format: "%n")
-                  xml.vFrete number_to_currency(item.prod.v_frete, separator: ".", delimiter: "", format: "%n")
-                  xml.vSeg number_to_currency(item.prod.v_seg, separator: ".", delimiter: "", format: "%n")
-                  xml.vDesc number_to_currency(item.prod.v_desc, separator: ".", delimiter: "", format: "%n")
-                  xml.vOutro number_to_currency(item.prod.v_outro, separator: ".", delimiter: "", format: "%n")
+                  xml.vUnTrib number_to_currency(item.prod.v_un_trib, separator: ".", delimiter: "", format: "%n") 
+                  xml.vFrete number_to_currency(item.prod.v_frete, separator: ".", delimiter: "", format: "%n")if item.prod.v_frete.present? && item.prod.v_frete > 0
+                  xml.vSeg number_to_currency(item.prod.v_seg, separator: ".", delimiter: "", format: "%n")if item.prod.v_seg.present? && item.prod.v_seg > 0
+                  xml.vDesc number_to_currency(item.prod.v_desc, separator: ".", delimiter: "", format: "%n")if item.prod.v_desc.present? && item.prod.v_desc > 0
+                  xml.vOutro number_to_currency(item.prod.v_outro, separator: ".", delimiter: "", format: "%n")if item.prod.v_outro.present? && item.prod.v_outro > 0
                   xml.indTot item.prod.ind_tot
                 }
                 xml.imposto {
