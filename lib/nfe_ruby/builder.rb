@@ -139,9 +139,9 @@ module NfeRuby
 		      xml.vIPI number_to_currency(item.imposto.ipi.v_ipi, separator: ".", delimiter: "", format: "%n") if item.imposto.ipi.v_ipi.present?
 		      puts 'BASE DE VALOR #{item.imposto.ipi.v_ipi}'
 		      
-                      }	
-                    }
-                  }
+                    }	
+                }
+  
                   end
                   
                   if item.imposto.pis.cst.present?
