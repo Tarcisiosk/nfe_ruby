@@ -119,9 +119,9 @@ module NfeRuby
                       xml.vICMSDeson number_to_currency(item.imposto.icms.v_icms_deson, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_deson.present?
                       xml.motDesICMS item.imposto.icms.mot_des_icms if item.imposto.icms.mot_des_icms.present?
 
- 
                     }
                   }
+                  
                   if item.imposto.ipi.cst.present?
                   xml.IPI {
                     xml.send(tag_ipi) {
@@ -130,7 +130,8 @@ module NfeRuby
 			  	          	xml.vIPI item.imposto.ipi.v_ipi if item.imposto.ipi.v_ipi.present?
                     }
                   }
-              
+                  end
+                  
                   if item.imposto.pis.cst.present?
                   xml.PIS {
                     tag_pis = case item.imposto.pis.cst
@@ -160,7 +161,7 @@ module NfeRuby
                         xml.CST item.imposto.cofins.cst if item.imposto.cofins.cst.present?
                         xml.vBC item.imposto.pis.v_bc if item.imposto.pis.v_bc.present?
                         xml.pCOFINS item.imposto.pis.p_cofins if item.imposto.pis.p_cofins.present?
- 			  		            xml.vCOFINS item.imposto.pis.v_cofins if item.imposto.pis.v_cofins.present? 
+			xml.vCOFINS item.imposto.pis.v_cofins if item.imposto.pis.v_cofins.present? 
                         
                       }
                     }
