@@ -132,6 +132,7 @@ module NfeRuby
  		    end
                     xml.send(tag_ipi) {
 		      xml.CST item.imposto.ipi.cst if item.imposto.ipi.cst.present?
+		      xml.cEnq item.imposto.ipi.c_enq if item.imposto.ipi.v_ipi.present?
                       xml.vBC number_to_currency(item.imposto.ipi.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.ipi.v_bc.present?
 		      xml.pIPI item.imposto.ipi.p_ipi if item.imposto.ipi.p_ipi.present?
 		      xml.vIPI number_to_currency(item.imposto.ipi.v_ipi, separator: ".", delimiter: "", format: "%n") if item.imposto.ipi.v_ipi.present?
