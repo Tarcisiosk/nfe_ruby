@@ -165,7 +165,7 @@ module NfeRuby
                                    end
                       xml.send(tag_cofins) {
                         xml.CST item.imposto.cofins.cst if item.imposto.cofins.cst.present?
-                        xml.vBC item.imposto.cofins.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.cofins.v_bc.present?
+                        xml.vBC  number_to_currency(item.imposto.cofins.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.cofins.v_bc.present?
                         xml.pCOFINS item.imposto.cofins.p_cofins if item.imposto.cofins.p_cofins.present?
 			xml.vCOFINS number_to_currency(item.imposto.cofins.v_cofins, separator: ".", delimiter: "", format: "%n") if item.imposto.cofins.v_cofins.present? 
                         
