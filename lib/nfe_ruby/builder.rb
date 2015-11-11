@@ -124,6 +124,11 @@ module NfeRuby
                   
                   if item.imposto.ipi.cst.present?
                   xml.IPI {
+                    if item.imposto.ipi.cst == '00' || item.imposto.ipi.cst == '49' || item.imposto.ipi.cst == '50' || item.imposto.ipi.cst == '99'
+ 		    	tag_ipi = 'IPITrib'
+ 		    else
+ 		    	tag_ipi = 'IPINT'
+ 		    end
                     xml.send(tag_ipi) {
                   		xml.vBC item.imposto.ipi.v_bc if item.imposto.ipi.v_bc.present?
 			  	          	xml.pIPI item.imposto.ipi.p_ipi if item.imposto.ipi.p_ipi.present?
