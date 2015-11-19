@@ -208,6 +208,8 @@ module NfeRuby
             }
           }
         }
+        formatted_no_decl = Nokogiri::XML::Node::SaveOptions::FORMAT +
+                    Nokogiri::XML::Node::SaveOptions::NO_DECLARATION
         builder.to_xml save_with:formatted_no_decl
       end
     end
