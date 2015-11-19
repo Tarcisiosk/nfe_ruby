@@ -208,6 +208,7 @@ module NfeRuby
             }
           }
         }
+        builder.doc.root.to_xml
       end
     end
   end
