@@ -208,7 +208,6 @@ module NfeRuby
             }
           }
         }
-        builder = builder.doc.root.to_xml
         builder.to_xml save_with:formatted_no_decl
       end
     end
