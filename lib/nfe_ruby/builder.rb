@@ -12,8 +12,8 @@ module NfeRuby
     # Montar documento XML de uma NF-e (Nokogiri Builder)
     def to_builder
       builder = Nokogiri::XML::Builder.new do |xml|
-        xml.NFe(:xmlns => 'http://www.portalfiscal.inf.br/nfe', :versao => '3.10') {
-          xml.infNFe(:Id => "NFe#{@nfe_doc.chave_acesso}") {
+        xml.NFe(:xmlns => 'http://www.portalfiscal.inf.br/nfe') {
+          xml.infNFe(:Id => "NFe#{@nfe_doc.chave_acesso}", :versao => '3.10') {
             xml.ide {
               xml.cUF @nfe_doc.ide.c_uf
               xml.cNF "%08d" % @nfe_doc.ide.c_nf
