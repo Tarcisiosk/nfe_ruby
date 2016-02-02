@@ -1,6 +1,6 @@
 module NfeRuby
   class Imposto
-    attr_accessor :v_tot_trib, :icms, :ipi, :pis, :cofins, :imposto_devolv, :inf_ad_prod
+    attr_accessor :v_tot_trib, :icms, :icmssn, :ipi, :pis, :cofins, :imposto_devolv, :inf_ad_prod
 
     def initialize
       self.icms = NfeRuby::Icms.new
