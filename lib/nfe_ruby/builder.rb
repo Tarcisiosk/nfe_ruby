@@ -110,7 +110,6 @@ module NfeRuby
                       xml.orig item.imposto.icms.orig
                       tagcst = @nfe_doc.emit.crt.between?(1, 2) ? "CSOSN" : "CST"
 	              xml.send(tagcst){
-			201
 	              }
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
