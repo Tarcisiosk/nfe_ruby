@@ -106,6 +106,7 @@ module NfeRuby
                 xml.imposto {
                   xml.ICMS {
                     tag_icms = @nfe_doc.emit.crt.between?(1, 2) ? "ICMSSN#{item.imposto.icms.cst}" : "ICMS#{item.imposto.icms.cst}"
+                    sleep 8
                     xml.send(tag_icms) {
                       xml.orig item.imposto.icms.orig
                       if @nfe_doc.emit.crt.between?(1, 2)
