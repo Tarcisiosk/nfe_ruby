@@ -106,16 +106,13 @@ module NfeRuby
                 xml.imposto {
                   xml.ICMS {
                     tag_icms = @nfe_doc.emit.crt.between?(1, 2) ? "ICMSSN#{item.imposto.icms.cst}" : "ICMS#{item.imposto.icms.cst}"
-                    puts "================================================================================="
-                    sleep 8
                     xml.send(tag_icms) {
                       xml.orig item.imposto.icms.orig
                       if @nfe_doc.emit.crt.between?(1, 2)
-                      	xml.csosn item.imposto.icms.cst
+                	xml.csosn item.imposto.icms.cst
                       elsif
-                   	xml.cst item.imposto.icms.cst
+                	xml.cst item.imposto.icms.cst
                       end
-                   
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
                       xml.vBC number_to_currency(item.imposto.icms.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_bc.present?
@@ -131,7 +128,6 @@ module NfeRuby
                       xml.vICMSST number_to_currency(item.imposto.icms.v_icms_st, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_st.present?
                       xml.vICMSDeson number_to_currency(item.imposto.icms.v_icms_deson, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_icms_deson.present?
                       xml.motDesICMS item.imposto.icms.mot_des_icms if item.imposto.icms.mot_des_icms.present?
-
                     }
                   }
                   
