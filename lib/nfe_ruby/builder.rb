@@ -108,11 +108,12 @@ module NfeRuby
                     tag_icms = @nfe_doc.emit.crt.between?(1, 2) ? "ICMSSN#{item.imposto.icms.cst}" : "ICMS#{item.imposto.icms.cst}"
                     xml.send(tag_icms) {
                       xml.orig item.imposto.icms.orig
-                    #  if @nfe_doc.emit.crt.between?(1, 2)
-                    #  	xml.csosn item.imposto.icms.cst
-                    #  elsif
-                   	# xml.cst item.imposto.icms.cst
-                    #  end
+                      if @nfe_doc.emit.crt.between?(1, 2)
+                   	puts "ENTROU NO CSOSN"
+                      	xml.csosn item.imposto.icms.cst
+                      elsif
+                   	xml.cst item.imposto.icms.cst
+                      end
                    
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
