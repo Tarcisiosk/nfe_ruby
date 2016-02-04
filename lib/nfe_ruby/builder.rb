@@ -112,7 +112,7 @@ module NfeRuby
                 	# xml.csosn item.imposto.icms.cst
                  #     elsif
                  #     end
-            	      #xml.cst item.imposto.icms.cst
+            	      xml.cst item.imposto.icms.cst
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
                       xml.pRedBC item.imposto.icms.p_red_bc if item.imposto.icms.p_red_bc.present?
                       xml.vBC number_to_currency(item.imposto.icms.v_bc, separator: ".", delimiter: "", format: "%n") if item.imposto.icms.v_bc.present?
