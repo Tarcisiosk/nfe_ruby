@@ -112,7 +112,9 @@ module NfeRuby
                    	puts "ENTROU NO CSOSN"
                    	sleep 5
                       	xml.csosn item.imposto.icms.cst
-                      elsif
+                      elsif	
+                      	puts "ENTROU NO CST"
+                   	sleep 5
                    	xml.cst item.imposto.icms.cst
                       end
                    
