@@ -110,6 +110,7 @@ module NfeRuby
                       xml.orig item.imposto.icms.orig
                       if @nfe_doc.emit.crt.between?(1, 2)
                    	puts "ENTROU NO CSOSN"
+                   	sleep 5
                       	xml.csosn item.imposto.icms.cst
                       elsif
                    	xml.cst item.imposto.icms.cst
