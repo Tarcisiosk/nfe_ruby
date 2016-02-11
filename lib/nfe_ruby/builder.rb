@@ -110,7 +110,7 @@ module NfeRuby
                       xml.orig item.imposto.icms.orig
                        if @nfe_doc.emit.crt.between?(1, 2)
                 	xml.CSOSN item.imposto.icms.cst
-                      elsif
+                      else
 			xml.CST item.imposto.icms.cst
                       end
                       xml.modBC item.imposto.icms.mod_bc if item.imposto.icms.mod_bc.present?
