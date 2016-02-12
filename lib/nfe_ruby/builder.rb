@@ -111,7 +111,7 @@ module NfeRuby
                        if @nfe_doc.emit.crt.between?(1, 2) && item.imposto.icms.cst.present?
                 	xml.CSOSN item.imposto.icms.cst
                 	xml.pCredSN item.imposto.icms.p_cred_sn if item.imposto.icms.p_cred_sn.present? 
-                	xml.vCredICMSSN item.imposto.icms.v_cred_icmssn item.imposto.icms.v_cred_icmssn.present?
+                	xml.vCredICMSSN item.imposto.icms.v_cred_icmssn if item.imposto.icms.v_cred_icmssn.present?
                       else
 			xml.CST item.imposto.icms.cst 
                       end
